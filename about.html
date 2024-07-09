@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Nicolas Vargas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            opacity: 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-green-50 text-green-800">
+    <header class="p-6 bg-green-200 shadow-md hidden">
+        <nav class="flex justify-around">
+            <a href="index.html" class="text-green-900 hover:text-green-700">Main</a>
+            <a href="about.html" class="text-green-900 hover:text-green-700">About Me</a>
+            <a href="projects.html" class="text-green-900 hover:text-green-700">Projects</a>
+        </nav>
+    </header>
+
+    <section class="relative h-64 bg-cover bg-center hidden" style="background-image: url('jonatan-pie-EvKBHBGgaUo-unsplash.jpg');">
+        <div class="absolute inset-0 bg-green-800 bg-opacity-50 flex items-center justify-center">
+            <h1 class="text-5xl font-bold text-white">About Nicolas Vargas</h1>
+        </div>
+    </section>
+
+    <main id="about-me" class="p-6 hidden">
+        <div class="flex flex-col md:flex-row items-center mt-6">
+            <div class="md:w-1/3">
+                <img src="your-photo-url.jpg" alt="Nicolas Vargas" class="w-full rounded-lg shadow-md mb-6 md:mb-0">
+            </div>
+            <div class="md:w-2/3 md:ml-6">
+                <h2 class="text-4xl font-bold mb-4">Hello, I'm Nicolas Vargas</h2>
+                <p class="text-lg mb-4">I am a passionate developer with a keen interest in machine learning, data analysis, and artificial intelligence. My expertise includes:</p>
+                <ul class="list-disc list-inside mb-4 text-lg">
+                    <li>Machine Learning Models</li>
+                    <li>Data Analysis using Python</li>
+                    <li>Matplotlib, Plotly, and Seaborn for data visualization</li>
+                    <li>Azure Cognitive Services and cloud solutions</li>
+                    <li>Neural Networks and Deep Learning</li>
+                    <li>Computer Vision and AI</li>
+                    <li>Generative AI</li>
+                    <li>Pandas and Numpy for data manipulation</li>
+                    <li>Scikit-learn and TensorFlow for machine learning</li>
+                </ul>
+                <p class="text-lg">I love exploring the latest technologies and continuously improving my skills. My work involves creating innovative solutions that leverage the power of AI and data to solve real-world problems.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-6 bg-green-200 mt-6 hidden">
+        <h2 class="text-3xl font-semibold mb-4">Contact Me</h2>
+        <p class="text-lg">You can reach me via email at nicolasvargaszz2104@gmail.com or follow me on: <a href="https://github.com/nicolasvargaszz">Github</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Mostrar elementos inmediatamente sin animación
+            document.querySelectorAll(".hidden").forEach(element => {
+                element.classList.remove('hidden');
+            });
+
+            // Añadir animaciones
+            gsap.from("header", { duration: 1, y: -100, opacity: 0, ease: "power4.out" });
+            gsap.from("section.relative", { scale: 0.8, duration: 2, opacity: 0, ease: "elastic.out(1, 0.3)" });
+            gsap.from("main h2", {
+                scrollTrigger: {
+                    trigger: "main h2",
+                    start: "top 80%",
+                    end: "bottom 60%",
+                    toggleActions: "play none none reverse",
+                    markers: false
+                },
+                x: -200,
+                opacity: 0,
+                duration: 1.5,
+                ease: "back.out(1.7)"
+            });
+            gsap.from("footer", {
+                scrollTrigger: {
+                    trigger: "footer",
+                    start: "top 80%",
+                    end: "bottom 60%",
+                    toggleActions: "play none none reverse",
+                    markers: false
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1.5,
+                ease: "power4.out"
+            });
+
+            gsap.utils.toArray(".hover-zoom").forEach(element => {
+                element.addEventListener("mouseenter", () => {
+                    gsap.to(element, { scale: 1.05, duration: 0.3 });
+                });
+                element.addEventListener("mouseleave", () => {
+                    gsap.to(element, { scale: 1, duration: 0.3 });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

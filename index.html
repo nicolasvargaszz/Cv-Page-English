@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            opacity: 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <header class="p-6 bg-green-500 text-white shadow-md hidden">
+        <nav class="flex justify-around">
+            <a href="index.html" class="hover:text-green-300">Main</a>
+            <a href="about.html" class="hover:text-green-300">About Me</a>
+            <a href="projects.html" class="hover:text-green-300">Projects</a>
+        </nav>
+    </header>
+
+    <section class="relative h-64 bg-cover bg-center hidden" style="background-image: url('jonatan-pie-EvKBHBGgaUo-unsplash.jpg');">
+        <div class="absolute inset-0 bg-green-800 bg-opacity-50 flex items-center justify-center">
+            <h1 class="text-5xl font-bold text-white">Welcome to My Page!</h1>
+        </div>
+    </section>
+
+    <main id="main" class="p-6 hidden">
+        <h2 class="text-4xl font-bold mb-4">Introduction</h2>
+        <p class="text-lg">This is a brief introduction to the webpage. Navigate through the links to learn more about me and my projects.</p>
+    </main>
+
+    <section id="about-me" class="p-6 bg-green-100 mt-6 rounded-lg shadow-md hidden">
+        <h2 class="text-3xl font-semibold mb-4">About Me</h2>
+        <p class="text-lg">I am Nico Vargas, a Data Analyst who loves creating dashboards and training machine learning models. My expertise lies in Python, Pandas, Numpy, scikit-learn, TensorFlow, and Flask, and I have a keen interest in Deep Learning & Neural Networks.</p>
+    </section>
+
+    <section id="projects" class="p-6 mt-6 hidden">
+        <h2 class="text-3xl font-semibold mb-4">Projects</h2>
+        <p class="text-lg mb-4">Here are some of the projects I've worked on related to machine learning:</p>
+
+        <!-- Project 1 -->
+        <div class="mt-6 hover-zoom bg-white rounded-lg shadow-md p-4 hidden">
+            <h3 class="text-2xl font-bold mb-2">Leukemia Classification and Prediction using Neural Networks</h3>
+            <p class="text-lg mb-4">This project involves using neural networks to classify and predict leukemia based on patient data. The model was trained on a comprehensive dataset to achieve high accuracy and reliability.</p>
+            <img src="leukemia_clasifications.png" alt="Leukemia Project Image" class="w-full h-auto mb-4 rounded-lg">
+        </div>
+
+        <!-- Project 2 -->
+        <div class="mt-6 hover-zoom bg-white rounded-lg shadow-md p-4 hidden">
+            <h3 class="text-2xl font-bold mb-2">Sales Forecasting</h3>
+            <p class="text-lg mb-4">In this project, I developed a sales forecasting model to predict future sales based on historical data. The model helps businesses in planning and inventory management by providing accurate sales forecasts, in this image you can see one of the 115 predictions I made.</p>
+            <img src="forecasting.jpeg" alt="Sales Forecasting Image" class="w-full h-auto mb-4 rounded-lg">
+        </div>
+
+        <!-- Project 3 -->
+        <div class="mt-6 hover-zoom bg-white rounded-lg shadow-md p-4 hidden">
+            <h3 class="text-2xl font-bold mb-2">Text Classification using Machine Learning Models</h3>
+            <p class="text-lg mb-4">This project focuses on classifying text into various categories using machine learning models. The model was trained on a large corpus of text data to ensure accuracy and robustness in classification tasks.</p>
+            <img src="npl.gif" alt="Text Classification gif" class="w-full h-auto mb-4 rounded-lg">
+        </div>
+    </section>
+
+    <footer class="p-6 bg-green-500 text-white mt-6">
+        <h2 class="text-3xl font-semibold mb-4">Contact Me</h2>
+        <p class="text-lg">You can reach me via email at nicolasvargaszz2104@gmail.com or follow me on: <a href="https://github.com/nicolasvargaszz" class="hover:text-black-300">Github</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Mostrar elementos inmediatamente sin animación
+            document.querySelectorAll(".hidden").forEach(element => {
+                element.classList.remove('hidden');
+            });
+
+            // Añadir animaciones
+            gsap.from("header", { duration: 1, y: -100, opacity: 0, ease: "power4.out" });
+            gsap.from("section.relative", { scale: 0.8, duration: 2, opacity: 0, ease: "elastic.out(1, 0.3)" });
+            gsap.from("main h2", {
+                scrollTrigger: {
+                    trigger: "main h2",
+                    start: "top 80%",
+                    end: "bottom 60%",
+                    toggleActions: "play none none reverse",
+                    markers: false
+                },
+                x: -200,
+                opacity: 0,
+                duration: 1.5,
+                ease: "back.out(1.7)"
+            });
+            gsap.from("footer", {
+                scrollTrigger: {
+                    trigger: "footer",
+                    start: "top 80%",
+                    end: "bottom 60%",
+                    toggleActions: "play none none reverse",
+                    markers: false
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1.5,
+                ease: "power4.out"
+            });
+
+            gsap.utils.toArray(".hover-zoom").forEach(element => {
+                element.addEventListener("mouseenter", () => {
+                    gsap.to(element, { scale: 1.05, duration: 0.3 });
+                });
+                element.addEventListener("mouseleave", () => {
+                    gsap.to(element, { scale: 1, duration: 0.3 });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
