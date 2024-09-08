@@ -12,117 +12,101 @@
         .project-card:hover {
             transform: scale(1.05);
         }
+        .text-green-custom {
+            color: #38a169; /* The green color from the index page */
+        }
+        .bg-green-custom {
+            background-color: #38a169; /* Same green for background elements */
+        }
+        .hover-bg-green {
+            transition: background-color 0.3s ease-in-out;
+        }
+        .hover-bg-green:hover {
+            background-color: #2f855a; /* Slightly darker green on hover */
+        }
+        .bg-green-gradient {
+            background: linear-gradient(90deg, #38a169, #2f855a); /* Green gradient */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
+    <!-- Header Section -->
+    <header class="p-6 bg-green-500 text-white shadow-md hidden" id="header">
+        <nav class="flex justify-around">
+            <a href="index.html" class="hover:text-green-300">Main</a>
+            <a href="about.html" class="hover:text-green-300">About Me</a>
+            <a href="projects.html" class="hover:text-green-300">Projects</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section class="relative h-64 bg-cover bg-center hidden" id="welcome-section" style="background-image: url('jonatan-pie-EvKBHBGgaUo-unsplash.jpg');">
+        <div class="absolute inset-0 bg-green-800 bg-opacity-50 flex items-center justify-center">
+            <h1 class="text-5xl font-bold text-white">Welcome to My Page!</h1>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="py-12 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12">My Projects</h2>
+            <h2 class="text-4xl font-bold text-center mb-12 text-green-custom">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Project 1 -->
                 <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
                     <img src="https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier/blob/main/WhatsApp%20Image%202024-07-08%20at%2023.38.07.jpeg" alt="Leukemia Classifier" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="text-2xl font-semibold mb-4">🩸 Acute Lymphoblastic Leukemia Classifier</h3>
+                        <h3 class="text-2xl font-semibold mb-4 text-green-custom">🩸 Acute Lymphoblastic Leukemia Classifier</h3>
                         <p class="text-gray-700 mb-4">Welcome to the Leukemia Classifier project! This initiative employs machine learning, computer vision, and various tools to classify Acute Lymphoblastic Leukemia (ALL) images into distinct categories.</p>
-                        <h4 class="text-xl font-bold mb-2">🔬 Project Overview</h4>
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🔬 Project Overview</h4>
                         <p class="text-gray-600 mb-4">This project utilizes Flask, TensorFlow, and scikit-image to offer a user-friendly interface for leukemia image classification. It integrates two machine learning models for distinguishing between 'hem' and 'all' leukemia types and classifying leukemia stages: 'Benign', 'Early', 'Pre', and 'Pro'.</p>
-                        <h4 class="text-xl font-bold mb-2">🌟 Features</h4>
-                        <ul class="list-disc list-inside mb-4 text-gray-600">
-                            <li>Image Classification: Upload leukemia images and classify them into specific types and stages.</li>
-                            <li>Model Integration: Combines machine learning models to provide accurate classification results.</li>
-                            <li>User Authentication: Secure login for authorized access to diagnostic features.</li>
-                        </ul>
-                        <h4 class="text-xl font-bold mb-2">🚀 Setup Instructions</h4>
-                        <p class="text-gray-600 mb-4">To set up and run this project locally, follow these steps:</p>
-                        <pre class="bg-gray-200 p-4 rounded-md mb-4"><code>git clone https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier.git
-cd leukemia-classifier
-pip install -r requirements.txt
-python app.py
-Access the app via http://localhost:5000</code></pre>
-                        <h4 class="text-xl font-bold mb-2">🧩 Technologies Used</h4>
-                        <p class="text-gray-600 mb-4">Flask, TensorFlow, scikit-image, SQLite</p>
-                        <h4 class="text-xl font-bold mb-2">📸 Example Results</h4>
-                        <div class="flex flex-wrap gap-4 mb-4">
-                            <img src="https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier/blob/main/WhatsApp%20Image%202024-07-08%20at%2023.38.07.jpeg" alt="Result Example 1" class="w-1/3 h-32 object-cover">
-                            <img src="https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier/blob/main/WhatsApp%20Image%202024-07-08%20at%2023.27.51.jpeg" alt="Result Example 2" class="w-1/3 h-32 object-cover">
-                            <img src="https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier/blob/main/WhatsApp%20Image%202024-07-08%20at%2023.27.51%20(1).jpeg" alt="Result Example 3" class="w-1/3 h-32 object-cover">
-                        </div>
-                        <h4 class="text-xl font-bold mb-2">📞 Contact</h4>
-                        <p class="text-gray-600">For any questions or further information, feel free to reach out:</p>
-                        <p class="text-blue-600"><a href="https://twitter.com/nicoelingeniero" target="_blank" rel="noopener noreferrer">@nicoelingeniero</a></p>
+                        <a href="https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier" class="text-blue-600">GitHub Repository</a>
                     </div>
                 </div>
-  <!-- Project 2 -->
-  <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
-    <img src="https://img.shields.io/badge/Python-3.8-blue" alt="Intelligent Inventory Management" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <h3 class="text-2xl font-semibold mb-4">🔍 Intelligent Inventory Management with Machine Learning</h3>
-        <p class="text-gray-700 mb-4">Welcome to the Intelligent Inventory Management project, designed to optimize inventory processes for a fabric retail company in Paraguay using machine learning. This project enhances inventory forecasting and management through advanced data analysis and predictive modeling.</p>
-        <h4 class="text-xl font-bold mb-2">🛠️ Project Structure: CRISP-DM</h4>
-        <p class="text-gray-600 mb-4">The project follows the CRISP-DM methodology, consisting of six key steps: Market Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, and Deployment.</p>
-        <h4 class="text-xl font-bold mb-2">📈 Summary</h4>
-        <p class="text-gray-600 mb-4">The project uses various methodologies for optimal inventory management. Initially, predictive models and regression techniques were employed, followed by the implementation of Facebook Prophet, which provided significantly improved results.</p>
-        <h4 class="text-xl font-bold mb-2">🚀 Technologies Used</h4>
-        <p class="text-gray-600 mb-4">Python, scikit-learn, Facebook Prophet, Pandas, Numpy</p>
-        <h4 class="text-xl font-bold mb-2">📚 Additional Information</h4>
-        <p class="text-gray-600 mb-4">For a detailed overview of the project, including code and implementation specifics, please refer to the project's <a href="#" class="text-blue-600">Notion page</a>.</p>
-        <h4 class="text-xl font-bold mb-2">📬 Contact</h4>
-        <p class="text-gray-600">Feel free to contact us for further details or inquiries related to this project.</p>
-        <p class="text-blue-600"><a href="https://twitter.com/nicoelingeniero" target="_blank" rel="noopener noreferrer">@nicoelingeniero</a></p>
-    </div>
-</div>
 
-<!-- Project 3 -->
-<div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
-    <img src="https://img.shields.io/badge/Python-3.8-blue" alt="Complaint Classification" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <h3 class="text-2xl font-semibold mb-4">💻 Machine Learning Models for Complaint Classification</h3>
-        <p class="text-gray-700 mb-4">This repository focuses on applying machine learning models to classify complaint types using natural language processing (NLP) techniques. The goal is to predict whether a complaint is related to computer issues or non-computer issues using various ML models.</p>
-        <h4 class="text-xl font-bold mb-2">📂 What Kind of Data Do We Have?</h4>
-        <p class="text-gray-600 mb-4">We are working with two important `.csv` files containing computer and non-computer complaints. All complaints are in Spanish, adding complexity to text processing and classification.</p>
-        <h4 class="text-xl font-bold mb-2">🎯 Goal of the Project</h4>
-        <p class="text-gray-600 mb-4">Build a machine learning model to accurately classify complaints into computer-related and non-computer-related categories.</p>
-        <h4 class="text-xl font-bold mb-2">🔎 What's the TF-IDF Algorithm?</h4>
-        <p class="text-gray-600 mb-4">TF-IDF (Term Frequency-Inverse Document Frequency) is a popular NLP algorithm used to evaluate the importance of a word in a document relative to a collection of documents. This helps in feature extraction and improving model performance.</p>
-        <h4 class="text-xl font-bold mb-2">🧠 Models and Techniques Used</h4>
-        <p class="text-gray-600 mb-4">Explore various machine learning models including Naive Bayes, SVM, and Logistic Regression. The project also includes an exploration of neural networks for advanced classification tasks.</p>
-        <h4 class="text-xl font-bold mb-2">📈 Results and Evaluation</h4>
-        <p class="text-gray-600 mb-4">Evaluate model performance based on metrics such as accuracy, precision, recall, and F1-score. Compare different models to select the best-performing classifier for the complaint classification task.</p>
-        <h4 class="text-xl font-bold mb-2">📚 Additional Information</h4>
-        <p class="text-gray-600 mb-4">For detailed implementation, review the project's <a href="#" class="text-blue-600">Notion page</a>.</p>
-        <h4 class="text-xl font-bold mb-2">📬 Contact</h4>
-        <p class="text-gray-600">For more information or inquiries about this project, feel free to contact us.</p>
-        <p class="text-blue-600"><a href="https://twitter.com/nicoelingeniero" target="_blank" rel="noopener noreferrer">@nicoelingeniero</a></p>
-    </div>
-</div>
+                <!-- Project 2 -->
+                <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="https://img.shields.io/badge/Python-3.8-blue" alt="Intelligent Inventory Management" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-custom">🔍 Intelligent Inventory Management with Machine Learning</h3>
+                        <p class="text-gray-700 mb-4">This project enhances inventory forecasting and management for a fabric retail company in Paraguay using machine learning. It improves inventory accuracy with predictive modeling.</p>
+                        <a href="https://github.com/nicolasvargaszz/stock-MachineLearning" class="text-blue-600">GitHub Repository</a>
+                    </div>
+                </div>
 
-<!-- Project 4 -->
-<div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
-    <img src="https://img.shields.io/badge/Python-3.8-blue" alt="Food Basket Comparison" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <h3 class="text-2xl font-semibold mb-4">🛒 Supermarket Food Basket Comparison</h3>
-        <p class="text-gray-700 mb-4">This project involves comparing the prices of basic food baskets across Paraguay's top five supermarkets using web scraping techniques. The aim is to find the most affordable supermarket for a basic food basket.</p>
-        <h4 class="text-xl font-bold mb-2">📂 Data Collection</h4>
-        <p class="text-gray-600 mb-4">Utilizing web scraping to collect pricing data from leading supermarkets in Paraguay, including Casa Grutter, to determine the most cost-effective option.</p>
-        <h4 class="text-xl font-bold mb-2">💻 Technologies Used</h4>
-        <p class="text-gray-600 mb-4">Python, Web Scraping, Pandas, Numpy</p>
-        <h4 class="text-xl font-bold mb-2">📊 Results</h4>
-        <p class="text-gray-600 mb-4">The project found that Casa Grutter offers the cheapest basic food basket compared to other supermarkets.</p>
-        <h4 class="text-xl font-bold mb-2">📚 Additional Information</h4>
-        <p class="text-gray-600 mb-4">For further details and the methodology used, please refer to the project's <a href="#" class="text-blue-600">Notion page</a>.</p>
-        <h4 class="text-xl font-bold mb-2">📬 Contact</h4>
-        <p class="text-gray-600">For inquiries or more information, feel free to contact us.</p>
-        <p class="text-blue-600"><a href="https://twitter.com/nicoelingeniero" target="_blank" rel="noopener noreferrer">@nicoelingeniero</a></p>
-    </div>
-</div>
+                <!-- Project 3 -->
+                <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="https://img.shields.io/badge/Python-3.8-blue" alt="Complaint Classification" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-custom">💻 Complaint Classification with Machine Learning</h3>
+                        <p class="text-gray-700 mb-4">This project applies machine learning to classify complaints based on natural language processing (NLP). It uses different models to predict complaint types efficiently.</p>
+                        <a href="https://github.com/nicolasvargaszz/ML-models" class="text-blue-600">GitHub Repository</a>
+                    </div>
+                </div>
 
-</div>
-</div>
-</section>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer Section -->
+    <footer class="bg-green-gradient text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>© 2024 Nicolas Vargas. All rights reserved.</p>
+            <p>Connect with me on <a href="mailto:nicolasvargaszz2104@gmail.com" class="text-blue-400">Email</a> or check out my <a href="https://github.com/nicolasvargaszz" target="_blank" class="text-blue-400">GitHub</a>.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript to make Welcome Section and Header appear -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show the header and welcome section after 1 second
+            setTimeout(function() {
+                document.getElementById('header').classList.remove('hidden');
+                document.getElementById('welcome-section').classList.remove('hidden');
+            }, 1000);
+        });
+    </script>
+    
 </body>
 </html>
