@@ -10,12 +10,74 @@
         .hidden {
             opacity: 0;
         }
+
+        .small-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
+        }
+
+        .footer-hidden {
+            display: none;
+        }
+
+        /* Light mode styles */
+        .light-mode {
+            background-color: #f9fafb;
+            color: #1a202c;
+        }
+
+        .light-mode h2, .light-mode p, .light-mode a {
+            font-weight: bold;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #1a202c;
+            color: #f9fafb;
+        }
+
+        .dark-mode .bg-green-500 {
+            background-color: #2d3748;
+        }
+
+        .dark-mode a {
+            color: #63b3ed;
+        }
+
+        .dark-mode a:hover {
+            color: #90cdf4;
+        }
+
+        .dark-mode img {
+            filter: brightness(0.8);
+        }
+
+        .dark-mode .bg-green-100 {
+            background-color: #2d3748;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #4a5568;
+        }
+
+        .dark-mode .text-gray-800 {
+            color: #f9fafb;
+        }
+
+        .dark-mode .text-gray-200 {
+            color: #e2e8f0;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 light-mode">
+    <!-- Dark mode toggle button -->
+    <button id="dark-mode-toggle" class="m-4 p-2 bg-green-500 text-white rounded-md">Enable Dark Mode</button>
+
     <header class="p-6 bg-green-500 text-white shadow-md hidden">
         <nav class="flex justify-around">
             <a href="index.html" class="hover:text-green-300">Main</a>
@@ -46,26 +108,27 @@
 
         <!-- Project 1 -->
         <div class="mt-6 hover-zoom bg-white rounded-lg shadow-md p-4 hidden">
-            <h3 class="text-2xl font-bold mb-2">Leukemia Classification and Prediction using Neural Networks</h3>
-            <p class="text-lg mb-4">This project involves using neural networks to classify and predict leukemia based on patient data. The model was trained on a comprehensive dataset to achieve high accuracy and reliability.</p>
-            <img src="leukemia_clasifications.png" alt="Leukemia Project Image" class="w-full h-auto mb-4 rounded-lg">
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Leukemia Classification and Prediction using Neural Networks</h3>
+            <p class="text-lg mb-4 text-gray-800">This project involves using neural networks to classify and predict leukemia based on patient data. The model was trained on a comprehensive dataset to achieve high accuracy and reliability.</p>
+            <img src="leukemia_clasifications.png" alt="Leukemia Project Image" class="small-img rounded-lg">
         </div>
 
         <!-- Project 2 -->
         <div class="mt-6 hover-zoom bg-white rounded-lg shadow-md p-4 hidden">
-            <h3 class="text-2xl font-bold mb-2">Sales Forecasting</h3>
-            <p class="text-lg mb-4">In this project, I developed a sales forecasting model to predict future sales based on historical data. The model helps businesses in planning and inventory management by providing accurate sales forecasts, in this image you can see one of the 115 predictions I made.</p>
-            <img src="forecasting.jpeg" alt="Sales Forecasting Image" class="w-full h-auto mb-4 rounded-lg">
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Sales Forecasting</h3>
+            <p class="text-lg mb-4 text-gray-800">In this project, I developed a sales forecasting model to predict future sales based on historical data. The model helps businesses in planning and inventory management by providing accurate sales forecasts, in this image you can see one of the 115 predictions I made.</p>
+            <img src="forecasting.jpeg" alt="Sales Forecasting Image" class="small-img rounded-lg">
         </div>
 
         <!-- Project 3 -->
         <div class="mt-6 hover-zoom bg-white rounded-lg shadow-md p-4 hidden">
-            <h3 class="text-2xl font-bold mb-2">Text Classification using Machine Learning Models</h3>
-            <p class="text-lg mb-4">This project focuses on classifying text into various categories using machine learning models. The model was trained on a large corpus of text data to ensure accuracy and robustness in classification tasks.</p>
-            <img src="npl.gif" alt="Text Classification gif" class="w-full h-auto mb-4 rounded-lg">
+            <h3 class="text-2xl font-bold mb-2 text-gray-800">Text Classification using Machine Learning Models</h3>
+            <p class="text-lg mb-4 text-gray-800">This project focuses on classifying text into various categories using machine learning models. The model was trained on a large corpus of text data to ensure accuracy and robustness in classification tasks.</p>
+            <img src="npl.gif" alt="Text Classification gif" class="small-img rounded-lg">
         </div>
     </section>
 
+    <!-- Visible footer without animation -->
     <footer class="p-6 bg-green-500 text-white mt-6">
         <h2 class="text-3xl font-semibold mb-4">Contact Me</h2>
         <p class="text-lg">You can reach me via email at nicolasvargaszz2104@gmail.com or follow me on: <a href="https://github.com/nicolasvargaszz" class="hover:text-black-300">Github</a></p>
@@ -75,41 +138,32 @@
         document.addEventListener('DOMContentLoaded', () => {
             gsap.registerPlugin(ScrollTrigger);
 
-            // Mostrar elementos inmediatamente sin animación
+            // Reveal elements without animation
             document.querySelectorAll(".hidden").forEach(element => {
                 element.classList.remove('hidden');
             });
 
-            // Añadir animaciones
+            // Header animation
             gsap.from("header", { duration: 1, y: -100, opacity: 0, ease: "power4.out" });
+            
+            // Section animations
             gsap.from("section.relative", { scale: 0.8, duration: 2, opacity: 0, ease: "elastic.out(1, 0.3)" });
-            gsap.from("main h2", {
+
+            // Projects and about section animations
+            gsap.from("main h2, #about-me, #projects", {
                 scrollTrigger: {
                     trigger: "main h2",
                     start: "top 80%",
                     end: "bottom 60%",
                     toggleActions: "play none none reverse",
-                    markers: false
                 },
                 x: -200,
                 opacity: 0,
                 duration: 1.5,
                 ease: "back.out(1.7)"
             });
-            gsap.from("footer", {
-                scrollTrigger: {
-                    trigger: "footer",
-                    start: "top 80%",
-                    end: "bottom 60%",
-                    toggleActions: "play none none reverse",
-                    markers: false
-                },
-                y: 100,
-                opacity: 0,
-                duration: 1.5,
-                ease: "power4.out"
-            });
 
+            // Hover zoom effect for project images
             gsap.utils.toArray(".hover-zoom").forEach(element => {
                 element.addEventListener("mouseenter", () => {
                     gsap.to(element, { scale: 1.05, duration: 0.3 });
@@ -117,6 +171,18 @@
                 element.addEventListener("mouseleave", () => {
                     gsap.to(element, { scale: 1, duration: 0.3 });
                 });
+            });
+
+            // Dark mode toggle functionality
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const body = document.body;
+            darkModeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    darkModeToggle.textContent = 'Disable Dark Mode';
+                } else {
+                    darkModeToggle.textContent = 'Enable Dark Mode';
+                }
             });
         });
     </script>
