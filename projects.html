@@ -27,9 +27,50 @@
         .bg-green-gradient {
             background: linear-gradient(90deg, #38a169, #2f855a);
         }
+        /* Dark Mode Styles */
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #1a202c;
+            color: #f9fafb;
+        }
+
+        .dark-mode .bg-green-500 {
+            background-color: #2d3748;
+        }
+
+        .dark-mode a {
+            color: #63b3ed;
+        }
+
+        .dark-mode a:hover {
+            color: #90cdf4;
+        }
+
+        .dark-mode img {
+            filter: brightness(0.8);
+        }
+
+        .dark-mode .bg-green-100 {
+            background-color: #2d3748;
+        }
+
+        .dark-mode .bg-white {
+            background-color: #4a5568;
+        }
+
+        .dark-mode .text-gray-800 {
+            color: #f9fafb;
+        }
+
+        .dark-mode .text-gray-200 {
+            color: #e2e8f0;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle" class="fixed top-4 right-4 p-2 bg-green-custom text-white rounded-md">🌙</button>
+
 
     <!-- Header Section -->
     <header class="p-6 bg-green-500 text-white shadow-md hidden" id="header">
@@ -52,59 +93,184 @@
         <div class="container mx-auto px-4">
             <h2 class="text-4xl font-bold text-center mb-12 text-green-custom">🚀 My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
                 <!-- Project 1: Leukemia Classifier -->
                 <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img src="https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier/blob/main/WhatsApp%20Image%202024-07-08%20at%2023.38.07.jpeg" alt="Leukemia Classifier" class="w-full h-48 object-cover">
+                    <img src="WhatsApp Image 2024-09-12 at 22.44.52.jpeg" alt="Leukemia Classifier" class="w-full h-30 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-4 text-green-custom">🩸 Acute Lymphoblastic Leukemia Classifier</h3>
-                        <p class="text-gray-700 mb-4">This project leverages cutting-edge machine learning and computer vision techniques to classify images of Acute Lymphoblastic Leukemia (ALL). By detecting early-stage leukemia cells, this classifier could potentially assist medical professionals in early diagnosis. 💻</p>
+                        <p class="text-gray-700 mb-4">This project focuses on the early detection and classification of Acute Lymphoblastic Leukemia (ALL), a type of cancer that affects white blood cells, using machine learning and computer vision. The goal is to assist medical professionals by offering a tool that automatically classifies leukemia cells based on uploaded images, improving diagnostic accuracy and speed. This classifier integrates advanced deep learning models to identify and categorize ALL into various stages, potentially aiding in timely medical intervention. 💻</p>
+                        
                         <h4 class="text-xl font-bold mb-2 text-green-custom">🔬 Key Features</h4>
-                        <p class="text-gray-600 mb-4">The classifier uses a combination of TensorFlow, Flask, and scikit-image for image processing. It’s designed with a robust user interface that simplifies leukemia classification into 'hem' and 'all', while further sub-categorizing the disease into stages such as 'Benign', 'Early', 'Pre', and 'Pro'.</p>
+                        <p class="text-gray-600 mb-4">The project is built using TensorFlow for deep learning, scikit-image for advanced image processing, and Flask to provide a web interface that makes it accessible to medical professionals. It consists of two primary machine learning models: one for identifying whether a cell is normal ('hem') or leukemic ('all'), and another for classifying the disease into stages: 'Benign', 'Early', 'Pre', and 'Pro'. The user-friendly interface allows doctors to securely upload patient images, receive real-time classification results, and store these results for further analysis. The project not only classifies but also stores and manages these results in a database for future reference and tracking.</p>
+                        
                         <h4 class="text-xl font-bold mb-2 text-green-custom">💡 Technologies</h4>
                         <ul class="list-disc pl-6 text-gray-600 mb-4">
-                            <li>Flask for web application framework</li>
-                            <li>TensorFlow for deep learning models</li>
-                            <li>scikit-image for image processing</li>
+                            <li>Flask: For the web application and user interface</li>
+                            <li>TensorFlow: To power the machine learning models</li>
+                            <li>scikit-image: For handling image processing tasks</li>
+                            <li>SQLite: Database for securely storing classification results</li>
                         </ul>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🚀 How to Use</h4>
+                        <p class="text-gray-600 mb-4">To use this classifier, users can upload leukemia cell images through the web application. The system then processes these images and runs them through the machine learning models to classify the leukemia type and stage. The results are displayed on the screen and saved to the application's database, where users can view previous classifications and data. This project also supports secure user authentication, ensuring that only authorized medical personnel can access sensitive diagnostic features.</p>
+                        
                         <a href="https://github.com/nicolasvargaszz/acute-lymphoblastic-leukemia-classifier" class="text-blue-600">🔗 GitHub Repository</a>
                     </div>
                 </div>
 
+
                 <!-- Project 2: Intelligent Inventory Management -->
                 <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img src="https://img.shields.io/badge/Python-3.8-blue" alt="Inventory Management" class="w-full h-48 object-cover">
+                    <img src="prophet.png" alt="Inventory Management" class="w-full h-38 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-4 text-green-custom">📦 Intelligent Inventory Management with Machine Learning</h3>
                         <p class="text-gray-700 mb-4">This project focuses on improving inventory forecasting and accuracy for a fabric retail company. Using machine learning, it predicts future stock demands to reduce excess inventory and prevent stockouts. 🛠️</p>
+                        
                         <h4 class="text-xl font-bold mb-2 text-green-custom">📊 Project Highlights</h4>
-                        <p class="text-gray-600 mb-4">Developed using Python, this system integrates models such as ARIMA and Facebook Prophet to predict future inventory levels. By analyzing past sales data, the project helps businesses streamline their stock management. 🌐</p>
+                        <p class="text-gray-600 mb-4">Developed using Python, this system integrates models such as ARIMA and Facebook Prophet to predict future inventory levels. By analyzing past sales data, the project helps businesses streamline their stock management, prevent overstocking, and ensure that stockouts are minimized. 🌐</p>
+                        
                         <h4 class="text-xl font-bold mb-2 text-green-custom">🛠️ Tools & Technologies</h4>
                         <ul class="list-disc pl-6 text-gray-600 mb-4">
                             <li>Pandas and NumPy for data manipulation</li>
                             <li>Scikit-learn for machine learning models</li>
                             <li>Facebook Prophet for time series forecasting</li>
                         </ul>
+                
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">📚 Project Methodology</h4>
+                        <p class="text-gray-600 mb-4">This project follows the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, a structured approach that includes market and data understanding, data preparation, modeling, and evaluation. It ensures that the predictive models align with business objectives and are capable of delivering accurate inventory forecasts.</p>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🚀 How It Works</h4>
+                        <p class="text-gray-600 mb-4">By analyzing historical sales and inventory data, the project forecasts future stock needs and offers actionable insights for maintaining the right inventory levels. The system continuously updates its predictions, allowing businesses to adapt to changing market conditions. With a deployment-ready pipeline, it integrates into existing inventory systems to automate stock management processes.</p>
+                
                         <a href="https://github.com/nicolasvargaszz/stock-MachineLearning" class="text-blue-600">🔗 GitHub Repository</a>
                     </div>
                 </div>
 
                 <!-- Project 3: Complaint Classification -->
                 <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
-                    <img src="https://img.shields.io/badge/Python-3.8-blue" alt="Complaint Classification" class="w-full h-48 object-cover">
+                    <img src="sklearn.jpg" alt="Complaint Classification" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold mb-4 text-green-custom">💬 Complaint Classification with NLP</h3>
-                        <p class="text-gray-700 mb-4">This project uses natural language processing (NLP) and machine learning to classify customer complaints efficiently. It automates the process of sorting complaints into predefined categories, enabling faster customer service responses. 🤖</p>
-                        <h4 class="text-xl font-bold mb-2 text-green-custom">💻 Key Technologies</h4>
-                        <p class="text-gray-600 mb-4">The project implements various models like Logistic Regression and Random Forest to classify complaints with high accuracy. It also uses NLP techniques such as tokenization, stemming, and TF-IDF vectorization. 🌍</p>
+                        <p class="text-gray-700 mb-4">
+                            This project uses natural language processing (NLP) and machine learning models to classify customer complaints into predefined categories, improving response times for customer service teams. The system is optimized for Spanish-language data and achieves impressive classification accuracy. 🤖
+                        </p>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🔍 Key Highlights</h4>
+                        <p class="text-gray-600 mb-4">
+                            Using techniques such as TF-IDF vectorization and models like LinearSVC, Logistic Regression, and Random Forest, this project classifies complaints with high precision. The best-performing model, LinearSVC, achieved an accuracy of 100%. 🌍
+                        </p>
+                
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🛠️ Tools & Technologies</h4>
+                        <ul class="list-disc pl-6 text-gray-600 mb-4">
+                            <li>Python for data preprocessing and modeling</li>
+                            <li>Scikit-learn for implementing machine learning algorithms</li>
+                            <li>TF-IDF for text vectorization in Spanish</li>
+                        </ul>
+                
                         <h4 class="text-xl font-bold mb-2 text-green-custom">📈 Key Contributions</h4>
                         <ul class="list-disc pl-6 text-gray-600 mb-4">
-                            <li>Improved customer satisfaction by reducing response time</li>
-                            <li>Automated classification with an accuracy of over 90%</li>
+                            <li>Automated classification with an accuracy of 100% using LinearSVC</li>
+                            <li>Reduced response time for customer service by automating complaint sorting</li>
                         </ul>
+                
                         <a href="https://github.com/nicolasvargaszz/ML-models" class="text-blue-600">🔗 GitHub Repository</a>
                     </div>
                 </div>
+                <!-- Project 4: Azure-Voice-to-Text -->
+                <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="azure.png" alt="Azure-Voice-to-Text" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-custom">🔊 Azure-Voice-to-Text</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project utilizes Azure Cognitive Services to create a web application that records, transcribes, and analyzes medical consultations. It integrates Azure's text-to-speech and text classification APIs, aiming to streamline medical consultations and provide actionable insights from transcribed data.
+                        </p>
+
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🔍 Key Highlights</h4>
+                        <p class="text-gray-600 mb-4">
+                            The application allows recording of both in-person and virtual consultations, converts audio to text with Azure's text-to-speech service, and analyzes the text using Azure's AI capabilities to provide valuable insights.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🛠️ Tools & Technologies</h4>
+                        <ul class="list-disc pl-6 text-gray-600 mb-4">
+                            <li>Flask for the web application framework</li>
+                            <li>Azure Cognitive Services for text-to-speech and text classification</li>
+                            <li>Python for application logic and Azure integration</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">📈 Future Enhancements</h4>
+                        <ul class="list-disc pl-6 text-gray-600 mb-4">
+                            <li>Integration with Electronic Health Records (EHR)</li>
+                            <li>Enhanced security features</li>
+                            <li>Support for additional languages</li>
+                        </ul>
+                        
+                        <a href="https://github.com/nicolasvargaszz/azure-voice-to-text" class="text-blue-600">🔗 GitHub Repository</a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Basic Food Basket Price Comparison -->
+                <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="webscrapping.jpg" alt="Basic Food Basket Price Comparison" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-custom">🧺 Basic Food Basket Price Comparison</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project compares the prices of the basic food basket across the top five supermarkets in Paraguay. Using web scraping techniques, the prices of various items are analyzed to determine the most cost-effective supermarket.
+                        </p>
+
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🔍 Key Highlights</h4>
+                        <p class="text-gray-600 mb-4">
+                            The project utilizes web scraping to gather data from supermarket websites, processes and analyzes this data with Python libraries, and presents the results through a Flask web application.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🛠️ Tools & Technologies</h4>
+                        <ul class="list-disc pl-6 text-gray-600 mb-4">
+                            <li>Python for web scraping and data analysis</li>
+                            <li>BeautifulSoup and Requests for scraping data</li>
+                            <li>Pandas and Numpy for data manipulation and analysis</li>
+                            <li>Flask for presenting results on a web page</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">📈 Screenshots</h4>
+                        <ul class="list-disc pl-6 text-gray-600 mb-4">
+                            <li><a href="https://user-images.githubusercontent.com/65906810/199857022-022d637a-7d08-488e-b693-4b637ec7b49b.png" class="text-blue-600" target="_blank">Final Price Screenshot</a></li>
+                            <li><a href="https://user-images.githubusercontent.com/65906810/199857076-a98810d3-e92e-441a-91b0-b14165bf6094.png" class="text-blue-600" target="_blank">Detailed Price Breakdown</a></li>
+                        </ul>
+                        
+                        <a href="https://github.com/nicolasvargaszz/Canasta-Basica-Alimentaria" class="text-blue-600">🔗 GitHub Repository</a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Best Machine Learning Models -->
+                <div class="project-card bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="sktensor.png" alt="Best Machine Learning Models" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-custom">📊 Best Machine Learning Models</h3>
+                        <p class="text-gray-700 mb-4">
+                            This repository showcases 10 different machine learning models applied to a dataset for analysis and predictions. It serves as a comprehensive resource for understanding various models and their applications in real-world scenarios.
+                        </p>
+
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🔍 Key Highlights</h4>
+                        <p class="text-gray-600 mb-4">
+                            Includes models such as Linear Regression, Logistic Regression, Decision Trees, and Neural Networks. The notebook provides clear examples and code for training, testing, and making predictions with these models.
+                        </p>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">🛠️ Tools & Technologies</h4>
+                        <ul class="list-disc pl-6 text-gray-600 mb-4">
+                            <li>Python for coding and model implementation</li>
+                            <li>Jupyter Notebooks for interactive coding</li>
+                            <li>Scikit-learn for machine learning algorithms</li>
+                        </ul>
+                        
+                        <h4 class="text-xl font-bold mb-2 text-green-custom">📚 Educational Resource</h4>
+                        <p class="text-gray-600 mb-4">
+                            This project is ideal for beginners and provides a practical overview of different machine learning algorithms and their implementations.
+                        </p>
+                        
+                        <a href="https://github.com/nicolasvargaszz/ML-models" class="text-blue-600">🔗 GitHub Repository</a>
+                    </div>
+                </div>
+
+                
 
             </div>
         </div>
@@ -118,7 +284,6 @@
         </div>
     </footer>
 
-    <!-- JavaScript to make Welcome Section and Header appear -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Show the header and welcome section after 1 second
@@ -127,6 +292,7 @@
                 document.getElementById('welcome-section').classList.remove('hidden');
             }, 1000);
         });
+        
     </script>
     
 </body>
